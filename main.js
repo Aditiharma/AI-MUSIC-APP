@@ -52,7 +52,6 @@ function draw(){
     document.getElementById("volume").innerHTML = "volume = " + volume;
     song.setVolume(volume);
     }
-    scoreLeftWrist = results[0].pose.keypoints[9].score;
     console.log(scoreLeftWrist);
 }
 function preload(){
@@ -69,6 +68,8 @@ function modelLoaded(){
 }
 function gotPoses(results){
     if(results.length > 0){
+        scoreLeftWrist = results[0].pose.keypoints[9].score;
+        scoreRightWrist = results[0].pose.keypoints[10].score;
         console.log(results);
         leftWristX = results[0].pose.leftWrist.x;
         leftWristY = results[0].pose.leftWrist.y;
